@@ -5,6 +5,7 @@ attr_reader :id
   def initialize(name, grade, id=nil)
     @name=name
     @grade=grade
+    @id = DB[:conn].execute("SELECT * FROM students").length +1
   end
 
   def self.create_table
