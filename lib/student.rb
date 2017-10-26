@@ -32,7 +32,7 @@ attr_reader :id
   end
 
   def save
-
+    
     DB[:conn].execute("INSERT INTO students VALUES (?,?)",  self.name, self.grade)
     
   end
