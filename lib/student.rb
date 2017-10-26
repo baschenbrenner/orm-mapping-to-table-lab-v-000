@@ -36,8 +36,8 @@ attr_reader :id
     @id= DB[:conn].execute("SELECT last_insert_rowid() FROM students;")[0][0]
   end
 
-  def create(input_hash)
-    new_student=Student.new(input_hash[:name],input_hash[:grade])
+  def create(input)
+    new_student=Student.new(input[:name],input[:grade])
     new_student.save
     new_student
   end
