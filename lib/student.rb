@@ -8,8 +8,7 @@ attr_reader :id
   def initialize(name, grade, id=nil)
     @name=name
     @grade=grade
-    @id = Student.all_students.length+1
-    @@all<<self
+    @id = DB[:conn].execute("SELECT * FROM students;").length+1
 
   end
 
