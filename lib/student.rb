@@ -18,7 +18,7 @@ attr_accessor :name, :grade
     sql = <<-SQL
         DROP TABLE students
         SQL
-    DB[:conn].execute(sql)  
+    DB[:conn].execute(sql)
   end
 
   def save
