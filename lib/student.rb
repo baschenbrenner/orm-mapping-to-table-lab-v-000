@@ -26,7 +26,7 @@ attr_reader :id
   def save
     id = DB[:conn].execute("SELECT * FROM students").length + 1
     DB[:conn].execute("INSERT INTO students VALUES (?,?,?)", id, self.name, self.grade)
-    self.id = id
+    
   end
   # Remember, you can access your database connection anywhere in this class
   #  with DB[:conn]
