@@ -8,8 +8,7 @@ attr_reader :id
   def initialize(name, grade, id=nil)
     @name=name
     @grade=grade
-    @@student_counter +=1
-    @id = @@student_counter
+    @id = id
 
   end
 
