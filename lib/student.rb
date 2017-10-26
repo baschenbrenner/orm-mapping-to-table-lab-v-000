@@ -37,8 +37,9 @@ attr_reader :id
   end
 
   def create(input_hash)
-
-
+    new_student=Student.new(input_hash[:name],input_hash[:grade])
+    new_student.save
+    new_student
   end
   # Remember, you can access your database connection anywhere in this class
   #  with DB[:conn]
