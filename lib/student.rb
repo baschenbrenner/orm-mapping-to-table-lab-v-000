@@ -4,18 +4,19 @@ attr_reader :id
 
 
   @@all = []
-  
+
   def initialize(name, grade, id=nil)
     @name=name
     @grade=grade
     @id = self.all_students.length+1
-    
+    @@all<<self
+
   end
 
   def self.all_students
     @@all
   end
-  
+
   def self.create_table
   sql = <<-SQL
         CREATE TABLE IF NOT EXISTS students
@@ -38,10 +39,10 @@ attr_reader :id
   end
 
   def create(input_hash)
-    
-    
+
+
   end
   # Remember, you can access your database connection anywhere in this class
   #  with DB[:conn]
-  
+
 end
