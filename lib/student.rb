@@ -4,11 +4,12 @@ attr_reader :id
 
 
   @@all = []
-
+  @@student_counter = 0
   def initialize(name, grade, id=nil)
     @name=name
     @grade=grade
-    @id = id
+    @@student_counter +=1
+    @id = @@student_counter
 
   end
 
