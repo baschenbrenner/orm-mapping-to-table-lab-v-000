@@ -33,7 +33,7 @@ attr_reader :id
 
   def save
     DB[:conn].execute("INSERT INTO students (name, grade) VALUES (?,?)",  self.name, self.grade)
-    @id= DB[:conn].execute("SELECT last_insert_rowid() FROM students;")
+    @id= DB[:conn].execute("SELECT last_insert_rowid() FROM students;")[0][0]
   end
 
   def create(input_hash)
