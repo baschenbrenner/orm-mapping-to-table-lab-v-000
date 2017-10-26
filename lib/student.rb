@@ -8,7 +8,7 @@ attr_accesor :name, :grade
 
   self.create_table
   sql = <<- SQL
-        CREATE TABLE students 
+        CREATE TABLE students
         (id INTEGER PRIMARY KEY, name TEXT, grade INTEGER)
         SQL
   DB[:conn].execute(sql)
@@ -16,7 +16,7 @@ attr_accesor :name, :grade
   end
   def save
     DB[:conn].execute("INSERT INTO students VALUES (?,?,?)", id, self.name, self.grade)
-    
+
   end
   # Remember, you can access your database connection anywhere in this class
   #  with DB[:conn]
