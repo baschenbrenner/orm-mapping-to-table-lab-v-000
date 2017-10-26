@@ -6,6 +6,14 @@ attr_accesor :name, :grade
     @grade=grade
   end
 
+  self.create_table
+  sql = <<- SQL
+        CREATE TABLE students 
+        (id INTEGER PRIMARY KEY, name TEXT, grade INTEGER)
+        SQL
+  DB[:conn].execute(sql)
+  
+  end
   def save
     DB[:conn].execute("INSERT INTO students VALUES (?,?,?)", id, self.name, self.grade)
     
