@@ -22,6 +22,7 @@ attr_accessor :name, :grade
   end
 
   def save
+    id = DB[:conn].execute("SELECT * FROM students").length + 1
     DB[:conn].execute("INSERT INTO students VALUES (?,?,?)", id, self.name, self.grade)
 
   end
