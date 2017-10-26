@@ -2,12 +2,20 @@ class Student
 attr_accessor :name, :grade
 attr_reader :id
 
+
+  @@all = []
+  
   def initialize(name, grade, id=nil)
     @name=name
     @grade=grade
-    @id = 1
+    @id = self.all_students.length+1
+    
   end
 
+  def self.all_students
+    @@all
+  end
+  
   def self.create_table
   sql = <<-SQL
         CREATE TABLE IF NOT EXISTS students
@@ -28,7 +36,12 @@ attr_reader :id
     DB[:conn].execute("INSERT INTO students VALUES (?,?,?)", id, self.name, self.grade)
 
   end
+
+  def create(input_hash)
+    
+    
+  end
   # Remember, you can access your database connection anywhere in this class
   #  with DB[:conn]
-
+  
 end
