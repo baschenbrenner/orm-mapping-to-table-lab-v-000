@@ -8,7 +8,7 @@ attr_reader :id
   def initialize(name, grade, id=nil)
     @name=name
     @grade=grade
-    @id = self.all_students.length+1
+    @id = Student.all_students.length+1
     @@all<<self
 
   end
